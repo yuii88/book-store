@@ -1,35 +1,29 @@
 import React, { Component } from 'react';
 import './App.css';
 import data from './data/sample.json';
+import v1Image from './static/images/v1.jpg';
 
-
-
-class ImageSection extends Component {
-  
-  render() {
-    const img = data && data.length>0 && data.map((item)=><p>{item}</p>);
-      return(
-          <div>
-              <div>
-                  {/* <img className="prof_pic" src={img.id}/> */}
-                  <p>heelo</p>
-                  <img className="prof_pic" src={img.picture}/>
-                  {/* <img className="prof_pic" src={img.picture}/>
-                  <img className="prof_pic" src={img.picture}/>
-                  <img className="prof_pic" src={img.picture}/>
-                  <img className="prof_pic" src={img.picture}/>  */}
-              </div>
-          </div>
-      )
+const ImageComponent = ({ imageName }) => {
+  try {
+      const image = require(`./static/images/${imageName}`);
+      return <img src={image} alt={imageName} />;
+  } catch (error) {
+      console.error("Image not found:", imageName);
+      return <p>Image not found</p>;
   }
-}
+};
+
+
 
 function App() {
   return (
        
-    new ImageSection()
-    
+    <img src={v1Image} alt="v1" />
+  
   );
+
+
 }
 
+// export default App;
 export default App;
