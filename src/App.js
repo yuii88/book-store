@@ -1,28 +1,27 @@
-import React, { Component } from 'react';
-import './App.css';
-import data from './data/sample.json';
-import v1Image from './static/images/v1.jpg';
-
-const ImageComponent = ({ imageName }) => {
-  try {
-      const image = require(`./static/images/${imageName}`);
-      return <img src={image} alt={imageName} />;
-  } catch (error) {
-      console.error("Image not found:", imageName);
-      return <p>Image not found</p>;
-  }
-};
-
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import Home from './components/Home'
+import Login from './components/Login'
+import './App.css'
+import { useEffect, useState } from 'react'
 
 
 function App() {
+  const [loggedIn, setLoggedIn] = useState(false)
+  const [email, setEmail] = useState('')
+
   return (
-       
-    <img src={v1Image} alt="v1" />
-  
-  );
-
-
+    <div className="App">
+      <BrowserRouter>
+        <Routes>
+          <Route
+            path="/"
+            element={<Home email={email} loggedIn={loggedIn} setLoggedIn={setLoggedIn} />}
+          />
+          <Route path="/login" element={<Login setLoggedIn={setLoggedIn} setEmail={setEmail} />} />
+        </Routes>
+      </BrowserRouter>
+    </div>
+  )
 }
 
 // export default App;
