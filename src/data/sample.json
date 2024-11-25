@@ -1,0 +1,20 @@
+[
+    {
+      "id": 1,
+      "name": "V cute",
+      "picture": "./static/images/v/v1.jpg",
+      "charges": "PKR 100 per excess km"
+    },
+    {
+      "id": 2,
+      "name": "V boys",
+      "picture": "./static/images/v/v2.jpg",
+      "charges": "PKR 200 per excess km"
+    },
+    {
+        "id": 3,
+        "name": "V Gor",
+        "picture": "./static/images/v/v3.jpg",
+        "charges": "PKR 150 per excess km"
+      }
+]

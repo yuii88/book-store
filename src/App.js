@@ -1,24 +1,34 @@
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
+import data from './data/sample.json';
+
+
+
+class ImageSection extends Component {
+  
+  render() {
+    const img = data && data.length>0 && data.map((item)=><p>{item}</p>);
+      return(
+          <div>
+              <div>
+                  {/* <img className="prof_pic" src={img.id}/> */}
+                  <p>heelo</p>
+                  <img className="prof_pic" src={img.picture}/>
+                  {/* <img className="prof_pic" src={img.picture}/>
+                  <img className="prof_pic" src={img.picture}/>
+                  <img className="prof_pic" src={img.picture}/>
+                  <img className="prof_pic" src={img.picture}/>  */}
+              </div>
+          </div>
+      )
+  }
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+       
+    new ImageSection()
+    
   );
 }
 
